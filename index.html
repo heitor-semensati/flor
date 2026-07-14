@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Uma surpresa 🌷</title>
+
+<style>
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(#ffe6f2, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+}
+
+h1 {
+    color: #d63384;
+    animation: aparecer 2s;
+}
+
+p {
+    font-size: 20px;
+    color: #555;
+}
+
+#flor {
+    font-size: 30px;
+    opacity: 0;
+    animation: crescer 4s forwards;
+}
+
+button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px #ccc;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+
+#mensagem {
+    display:none;
+    margin-top:25px;
+    font-size:24px;
+    color:#c2185b;
+    animation: aparecer 2s;
+}
+
+
+@keyframes crescer {
+
+0% {
+    transform: scale(0);
+    opacity:0;
+}
+
+50% {
+    transform: scale(2);
+    opacity:1;
+}
+
+100% {
+    transform: scale(1);
+    opacity:1;
+}
+
+}
+
+
+@keyframes aparecer {
+
+from {
+    opacity:0;
+    transform:translateY(30px);
+}
+
+to {
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
+
+
+.brilho {
+    position:absolute;
+    font-size:30px;
+    animation: subir 4s infinite;
+}
+
+
+@keyframes subir {
+
+from {
+    transform:translateY(100px);
+    opacity:0;
+}
+
+50% {
+    opacity:1;
+}
+
+to {
+    transform:translateY(-300px);
+    opacity:0;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>Tenho uma entrega especial...</h1>
+
+<p id="texto">
+Aguarde... preparando uma coisa bonita 🌱
+</p>
+
+
+<div id="flor">
+🌷
+</div>
+
+
+<button onclick="surpresa()">
+Abrir presente 🎁
+</button>
+
+
+<div id="mensagem">
+
+🌸 Essa flor é especialmente para você.<br><br>
+
+Eu pensei em entregar uma flor de verdade...<br>
+mas descobri que essa tem uma vantagem:<br><br>
+
+<strong>Ela nunca murcha, não precisa de água<br>
+e sempre aparece quando você quiser sorrir 😄</strong>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+setTimeout(function(){
+
+document.getElementById("texto").innerHTML =
+"A mágica está acontecendo... 🌱";
+
+},2000);
+
+
+
+function surpresa(){
+
+document.getElementById("mensagem").style.display="block";
+
+for(let i=0;i<15;i++){
+
+let brilho=document.createElement("div");
+
+brilho.className="brilho";
+brilho.innerHTML="✨";
+
+brilho.style.left=Math.random()*100+"vw";
+brilho.style.top="80vh";
+brilho.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(brilho);
+
+}
+
+}
+
+</script>
+
+
+</body>
+</html>
